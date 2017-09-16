@@ -99,6 +99,8 @@ class ViewController: UIViewController, EasyTipViewDelegate {
             preferences.animating.showDuration = 1
             preferences.animating.dismissDuration = 1
             
+            preferences.dismissWhenTouchingOutside = true
+            
             let view = EasyTipView(text: "Tip view within the green superview. Tap to dismiss.", preferences: preferences)
             view.show(forView: buttonA, withinSuperview: self.smallContainerView)
             
