@@ -115,7 +115,8 @@ public extension EasyTipView {
 
         if preferences.dismissWhenTouchingOutside {
             if let window = self.window {
-                let dismissOverlay  = UIView(frame: window.bounds)
+                let dismissOverlay = EasyTipPassthroughView(frame: window.bounds)
+                dismissOverlay.tipView = self
                 dismissOverlay.isUserInteractionEnabled = true
                 dismissOverlay.addGestureRecognizer(tap)
                 dismissOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -252,7 +253,7 @@ open class EasyTipView: UIView {
         return "<< \(type) with text : '\(text)' >>"
     }
     
-    var dismissOverlay: UIView?
+    var dismissOverlay: EasyTipPassthroughView?
 
     
     fileprivate weak var presentingView: UIView?
